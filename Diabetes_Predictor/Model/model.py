@@ -8,17 +8,17 @@ from itertools import compress
 #e and f
 class Model:
     def __init__(self, features, target):
-        self.features = features
-        self.target = target
+        self._features = features
+        self._target = target
         #self.hyperparameter = max_depth
         self.model = RandomForestClassifier()
     
     def fit(self, df):
-        self.model.fit(df.filter(items=self.features) , df[self.target])
+        self.model.fit(df.filter(items=self._features) , df[self._target])
         pass
 
     def predict(self, df):
-        return self.model.predict_proba(df.filter(items = features))
+        return self.model.predict_proba(df.filter(items = self._features))
 
 
 #target = 'diabetes_mellitus'

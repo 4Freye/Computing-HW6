@@ -39,7 +39,7 @@ class interact(FeatureCreate):
         return df
 
 class dummify(FeatureCreate):
-    def create_dummies(df):
+    def create_feature(df):
         string_cols = list(compress(list(df.columns.values), [isinstance(s, str) for s in df.iloc[0,:]]))
         df = pd.get_dummies(df,  columns = string_cols)
         return df
